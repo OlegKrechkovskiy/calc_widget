@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8pYgd/OVIe3zlSHt8pUgdgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADzliDqtq1a/6yxY//zliH/85Yh//OWIf/zliH/8pUg6QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADzliH/85Yh/znczf853M3/uqtW//OWIf/zliH/85Yh/znczf/zliH/AAAAAAAAAAAAAAAAAAAAAAAAAADzliDq85Yh/76qUv853M3/OdzN/znczf/zliH/85Yh//OWIf853M3/OdzN//OWIewAAAAAAAAAAAAAAAAAAAAA85Yh//OWIf9az6//OdzN/0nWvv/zliH/85Yh//OWIf/zliH/OdzN/znczf+4rFj/AAAAAAAAAAAAAAAA8pYhevOWIf+NvYD/85Yh//OWIf/zliH/85Yh//OWIf853M3/OdzN/znczf853M3/OdzN//KWIHcAAAAAAAAAAPOVIe0+28n/2p84/9yfNv/zliH/85Yh//OWIf/zliH/OdzN/znczf853M3/OdzN/znczf/zliDqAAAAAAAAAADzlSHtOdzN/znczf853M3/85Yh//OWIf/zliH/85Yh/5S6ef853M3/OdzN/znczf853M3/85Ug6wAAAAAAAAAA8pYgfTnczf853M3/OdzN/znczf853M3/85Yh//OWIf/zliH/OdzN/znczf853M3/OdzN//KVIXsAAAAAAAAAAAAAAAC4rFj/OdzN/0jXwP+yr13/OdzN//OWIf/zliH/85Yh//OWIf853M3/OdzN/62wYf8AAAAAAAAAAAAAAAAAAAAA85Yg8Tnczf853M3/85Yh//OWIf/zliH/4pww//OWIf/zliH/OdzN/znczf/zliDxAAAAAAAAAAAAAAAAAAAAAAAAAADzliH/kLt9/0PYxP/smSf/85Yh/znczf+ZuHT/85Yh/6Szav/zliH/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPOVIPLzliH/85Yh/4+7fP853M3/OdzN//OWIf/zlSDyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPKVIH7zliHu85Yh7vKWIH0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP5/AADwDwAA4AcAAMADAADAAwAAwAMAAIABAACAAQAAwAMAAMADAADAAwAA4AcAAPAPAAD+fwAA//8AAA=="
+    rel="icon" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./main.min.css" />
+  <title>Calc</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="calc-block">
+
+      <div class="price-slider cost-of-equipment" id="cost-of-equipment" data-slider-block data-min="100000" data-max="10000000" data-step="10000" data-unit="₽">
+        <div class="price-slider__title">Стоимость оборудования</div>
+        <div class="price-slider-output" data-output></div>
+        <input class="styled-slider slider-progress" type="range" data-range-slider>
+        <div class="price-slider-values">
+          <span class="min-value" data-min-value></span>
+          <span class="max-value" data-max-value></span>
+        </div>
+      </div>
+
+      <div class="price-slider advance-payment" id="advance-payment" data-slider-block data-min="0" data-max="100" data-step="1" data-unit="%" data-sum="100000">
+        <div class="price-slider__title">Авансовый платеж</div>
+        <div class="price-slider-output">
+          <span data-output></span>
+          <span data-percent></span>
+        </div>
+        <input class="styled-slider slider-progress" type="range" data-range-slider>
+        <div class="price-slider-values">
+          <span class="min-value" data-min-value></span>
+          <span class="max-value" data-max-value></span>
+        </div>
+      </div>
+
+      <div class="price-slider leasing-term" id="leasing-term" data-slider-block data-min="6" data-max="36" data-step="1" data-unit="мес.">
+        <div class="price-slider__title">Срок лизинга</div>
+        <div class="price-slider-output" data-output></div>
+        <input class="styled-slider slider-progress" type="range" data-range-slider>
+        <div class="price-slider-values">
+          <span class="min-value" data-min-value></span>
+          <span class="max-value" data-max-value></span>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+  <!-- <script type="module" src="./main.js"></script> -->
+  <script type="module" src="./main_new.js"></script>
+
+</body>
+
+</html>

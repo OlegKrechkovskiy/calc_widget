@@ -1,0 +1,19 @@
+{
+  "name": "calc_widget",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev host": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "rm dist": "rimraf ./dist"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "rimraf": "^5.0.6"
+  }
+}
