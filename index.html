@@ -14,48 +14,82 @@
 <body>
   <div class="container">
 
-    <div class="calc-block">
+    <div class="wrapper-calc">
 
-      <div class="price-slider cost-of-equipment" id="cost-of-equipment" data-slider-block data-min="100000" data-max="10000000" data-step="10000" data-unit="₽">
-        <div class="price-slider__title">Стоимость оборудования</div>
-        <div class="price-slider-output" data-output></div>
-        <input class="styled-slider slider-progress" type="range" data-range-slider>
-        <div class="price-slider-values">
-          <span class="min-value" data-min-value></span>
-          <span class="max-value" data-max-value></span>
+      <div class="calc-block">
+        <div class="price-slider cost-of-equipment" id="cost-of-equipment" data-slider-block data-min="100000" data-max="10000000" data-step="10000" data-unit="₽">
+          <div class="price-slider__title">Стоимость оборудования</div>
+          <div class="price-slider-output" data-output></div>
+          <input class="styled-slider slider-progress" type="range" data-range-slider>
+          <div class="price-slider-values">
+            <span class="min-value" data-min-value></span>
+            <span class="max-value" data-max-value></span>
+          </div>
+        </div>
+        <div class="price-slider advance-payment" id="advance-payment" data-slider-block data-min="0" data-max="100" data-step="1" data-unit="%" data-sum="100000">
+          <div class="price-slider__title">Авансовый платеж</div>
+          <div class="price-slider-output">
+            <span data-output></span>
+            <span data-percent></span>
+          </div>
+          <input class="styled-slider slider-progress" type="range" data-range-slider>
+          <div class="price-slider-values">
+            <span class="min-value" data-min-value></span>
+            <span class="max-value" data-max-value></span>
+          </div>
+        </div>
+        <div class="price-slider leasing-term" id="leasing-term" data-slider-block data-min="6" data-max="36" data-step="1" data-unit="мес.">
+          <div class="price-slider__title">Срок лизинга</div>
+          <div class="price-slider-output" data-output></div>
+          <input class="styled-slider slider-progress" type="range" data-range-slider>
+          <div class="price-slider-values">
+            <span class="min-value" data-min-value></span>
+            <span class="max-value" data-max-value></span>
+          </div>
         </div>
       </div>
 
-      <div class="price-slider advance-payment" id="advance-payment" data-slider-block data-min="0" data-max="100" data-step="1" data-unit="%" data-sum="100000">
-        <div class="price-slider__title">Авансовый платеж</div>
-        <div class="price-slider-output">
-          <span data-output></span>
-          <span data-percent></span>
+      <div class="calc-results-block">
+
+        <div class="calc-results-block-first results-block">
+          <div class="results-block-item">
+            <span class="results-block-item__title">налоговая экономия</span>
+            <div class="results-block-item__value">
+              до
+              <span data-total-tax-savings></span>
+            </div>
+          </div>
+          <div class="results-block-item">
+            <span class="results-block-item__title">сумма договора</span>
+            <div class="results-block-item__value" >
+              <span data-amount-deal></span>
+            </div>
+          </div>
         </div>
-        <input class="styled-slider slider-progress" type="range" data-range-slider>
-        <div class="price-slider-values">
-          <span class="min-value" data-min-value></span>
-          <span class="max-value" data-max-value></span>
+
+        <div class="calc-results-block-second results-block">
+          <div class="results-block-item">
+            <span class="results-block-item__title">Ежемесячный платеж</span>
+            <div class="results-block-item__value" >
+              от
+              <span data-monthly-payment></span>
+            </div>
+          </div>
+          <div class="results-block-item">
+            <span class="results-block-item__title">
+              Данный расчёт не является публичной офертой.
+              Точные параметры сделки вы получите, заполнив онлайн заявку.
+            </span>
+          </div>
         </div>
+
       </div>
-
-      <div class="price-slider leasing-term" id="leasing-term" data-slider-block data-min="6" data-max="36" data-step="1" data-unit="мес.">
-        <div class="price-slider__title">Срок лизинга</div>
-        <div class="price-slider-output" data-output></div>
-        <input class="styled-slider slider-progress" type="range" data-range-slider>
-        <div class="price-slider-values">
-          <span class="min-value" data-min-value></span>
-          <span class="max-value" data-max-value></span>
-        </div>
-      </div>
-
-
-
     </div>
 
   </div>
   <!-- <script type="module" src="./main.js"></script> -->
-  <script type="module" src="./main_new.js"></script>
+  <!-- <script type="module" src="./main_new.js"></script> -->
+  <script type="module" src="./main_new2.js"></script>
 
 </body>
 

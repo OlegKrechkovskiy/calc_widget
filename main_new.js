@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', async function () {
+  //общий класс для inputs
   class inputRange {
     constructor(element) {
       this.element = element;
@@ -15,6 +16,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       this._recountVal = this.min; // Рассчет процента
       this._fundingAmount = 0; // Сумма финансирования
       this._riseInPrice = 0; // Удорожание
+      this._amountDeal = 0; // Сумма договора
+      this._monthlyPayment = 0; // Ежемесячный платёж
 
       this.rangeSlider.style.setProperty('--value', this.min);
       this.rangeSlider.style.setProperty('--min', this.min == '' ? '0' : this.min);
@@ -22,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     init() {
-      console.log('this: ', this);
+      // console.log('this: ', this);
       this.output.textContent = this.min.toLocaleString('ru-RU') + ' ' + this.unit;
       this.minValueElement.textContent = `${this.min.toLocaleString('ru-RU')} ${this.unit}`;
       this.maxValueElement.textContent = `${this.max.toLocaleString('ru-RU')} ${this.unit}`;
@@ -62,6 +65,18 @@ document.addEventListener('DOMContentLoaded', async function () {
     set riseInPrice(value) {
       this._riseInPrice = value;
     }
+    get amountDeal() {
+      return this._amountDeal;
+    }
+    set amountDeal(value) {
+      this._amountDeal = value;
+    }
+    get monthlyPayment() {
+      return this._monthlyPayment;
+    }
+    set monthlyPayment(value) {
+      this._monthlyPayment = value;
+    }
   }
 
   const costBlock = document.querySelector('#cost-of-equipment[data-slider-block]');
@@ -83,29 +98,47 @@ document.addEventListener('DOMContentLoaded', async function () {
   // });
 
   document.querySelectorAll('[data-range-slider]').forEach(async (element) => {
-    console.log('element: ', element);
+    // console.log('element: ', element);
     element.addEventListener('input', async function () {
       await interestCalculation(costCl.val, advanceCl); //Рассчет процента
       await fundingAmount(costCl, advanceCl); // Сумма финансирования
       await riseInPrice(); // Удорожание
+      await amountOfDeals(); // Сумма договора
+      await monthlyPayment(); // Ежемесячный платёж
       console.log(
         '%c change value >> ',
         'background:teal;color:white;',
         costCl.val,
         advanceCl.recountVal,
         costCl.fundingAmount,
-        leasingCl.riseInPrice
+        leasingCl.riseInPrice,
+        costCl.amountDeal
       );
     });
   });
 
   //Rise in price Удорожание
   async function riseInPrice() {
-    console.log('%c Удорожание ', 'background:black;color:white;');
     //Сумма финансирования * (Ставка (13%) / 12) * Срок лизинга
     // 1 050 000 руб. * 0,13/12 * 20 = 227 500 руб.
     leasingCl.riseInPrice = ((+costCl.fundingAmount * 0.13) / 12) * +leasingCl.val;
+    console.log('%c Удорожание ', 'background:black;color:white;', leasingCl.riseInPrice);
   }
+  // Сумма договора
+  async function amountOfDeals() {
+    //Стоимость оборудования + Удорожание
+    // 1 400 000 руб. + 227 500 руб. = 1 627 500 руб.
+    costCl.amountDeal = +costCl.val + +leasingCl.riseInPrice;
+    console.log('%c Стоимость оборудования >> ', 'background:black;color:white;', costCl.amountDeal);
+  }
+  // Ежемесячный платёж
+  async function monthlyPayment() {
+    //   (Сумма договора - Авансовый платёж) / Срок лизинга
+    // (1 627 500 руб. – 350 000 руб.) / 20 = 63 875 руб.
+    costCl.monthlyPayment = (+costCl.amountDeal - +advanceCl.recountVal) / +leasingCl.val;
+    console.log('%c Ежемесячный платёж ', 'background:black;color:white;', costCl.monthlyPayment);
+  }
+
 });
 
 // Рассчет процента при изменении суммы
@@ -120,7 +153,7 @@ async function interestCalculation(cost, advanceCl) {
 }
 //Сумма финансирования
 async function fundingAmount(costCl, advanceCl) {
-  console.log('%c Сумма финансирования ', 'background:black;color:white;');
   // Стоимость оборудования – Авансовый платёж
   costCl.fundingAmount = +costCl.val - +advanceCl.recountVal;
+  console.log('%c Сумма финансирования ', 'background:black;color:white;', costCl.fundingAmount);
 }
