@@ -211,8 +211,8 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   async function outputOfResults() {
-    totalTaxSavingsBlock.textContent = calcValue.totalTaxSavings.toLocaleString('ru-RU') + ' ₽';
+    totalTaxSavingsBlock.textContent = 'до ' + calcValue.totalTaxSavings.toLocaleString('ru-RU') + ' ₽';
     amountOfDealBlock.textContent = calcValue.amountDeal.toLocaleString('ru-RU') + ' ₽';
-    monthlyPaymentBlock.textContent = calcValue.monthlyPayment.toLocaleString('ru-RU') + ' ₽';
+    monthlyPaymentBlock.textContent = 'от ' + calcValue.monthlyPayment.toLocaleString('ru-RU') + ' ₽';
   }
 });
